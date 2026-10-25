@@ -1,0 +1,73 @@
+#include<iostream>
+#include<string>
+using namespace std ;
+
+class bankaccount{
+    private :
+        string username;
+        int balance;
+    public :
+        void setusername (string a){
+            username = a;
+        }
+
+        void setbalance (int b){
+            balance = b;
+        }
+
+        string getusername(){
+            return username;
+        }
+
+        int getbalance (){
+            return balance;
+        }
+
+        void credit(int amount){
+            if(amount > 0)
+            {
+                balance = balance + amount;
+                cout << "Amount credited successfully : ";
+            }
+            else{
+                cout << "\nInvalid credit amount : "<<amount;
+            }
+        }
+
+        void debit(int amount){
+            if( amount > 0 && amount <= balance )
+            {
+                balance = balance - amount;
+                cout <<"Amount Debited Successfully : ";
+            }
+            else
+            {
+                cout << "\nInvalid debit amount : "<<amount;
+            }
+        }
+};
+int main(){
+     int x;
+     int y;
+    bankaccount user1;
+    user1.setusername("Vishesh Chaurasiya");
+    user1.setbalance(5000);
+    // user1.credit(1000);
+    // user1.debit(4000);
+
+    cout << "Enter credit value : ";
+    cin >> x;
+    cout << "Enter debit value : ";
+    cin >> y;
+    
+    int creditamount = x;
+    int debitamount = y;
+
+    user1.credit(x);
+    user1.debit(y);
+
+    cout<<"\nUser Name : "<<user1.getusername()<<endl;
+    cout<<"Credit : "<<creditamount<<endl;
+    cout<<"Debit : "<<debitamount<<endl;
+    cout<<"Balance : "<<user1.getbalance()<<endl;
+}

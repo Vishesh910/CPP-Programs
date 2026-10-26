@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+class atm{
+    private:
+        int pin = 1234;
+        double balance = 500000;
+    public :
+        void checkbalance () {
+            cout <<"Available Balance : "<<balance<<endl;
+        }
+        void withdraw(int amount){
+            if (amount <= balance)
+            {
+                balance -= amount;
+                cout <<"PLEASE COLLECT YOUR CASH : "<<endl;
+            }
+            else
+            {
+                cout<<"insufficient balance : "<<endl;
+            }
+        }
+        void deposit(int amount){
+            balance +=  amount;
+            cout<<"Money deposite successfully : "<<endl;
+        } 
+};
+int main(){
+    atm u1;
+    u1.checkbalance();
+    u1.withdraw(500);
+    u1.deposit(0);
+    u1.checkbalance();
+    return 0;
+}
